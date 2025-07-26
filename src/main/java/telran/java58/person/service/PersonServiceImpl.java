@@ -65,7 +65,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public PersonDto[] findPersonsByName(String name) {
+    public PersonDto[] findPersonsByName(String name)  {
         return personRepository.findByName(name).stream()
                 .map(person -> modelMapper.map(person, PersonDto.class))
                 .toArray(PersonDto[]::new);
