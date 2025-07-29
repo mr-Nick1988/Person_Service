@@ -51,7 +51,7 @@ public class PersonServiceImpl implements PersonService {
     public PersonDto updatePersonName(Integer id, String newName) {
         Person person = personRepository.findById(id).orElseThrow(PersonNotFoundException::new);
         person.setName(newName);
-        personRepository.save(person);
+       // personRepository.save(person); //Transactional resolve this problem by commit
         return modelMapper.map(person, PersonDto.class);
     }
 
@@ -60,7 +60,7 @@ public class PersonServiceImpl implements PersonService {
     public PersonDto updatePersonAddress(Integer id, AddressDto newAddressDto) {
         Person person = personRepository.findById(id).orElseThrow(PersonNotFoundException::new);
         person.setAddress(modelMapper.map(newAddressDto, Address.class));
-        personRepository.save(person);
+       // personRepository.save(person);
         return modelMapper.map(person, PersonDto.class);
     }
 
