@@ -16,7 +16,7 @@ public class PersonController {
     private final PersonService personService;
 
 
-    @PostMapping("/")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void addPerson(@RequestBody PersonDto personDto) {
         personService.addPerson(personDto);
